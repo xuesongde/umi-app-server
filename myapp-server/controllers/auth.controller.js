@@ -32,11 +32,12 @@ exports.signin = (req, res) => {
         message: err.message || "Some error occurred while sign in.",
       });
     if (!user) {
-      return res.status(404).send({ message: "User Not found." });
+      return res.status(200).send({ code: 300000, message: "User Not found." });
     }
     var passwordIsValid = bcrypt.compareSync(req.body.passWord, user.passWord);
     if (!passwordIsValid) {
-      return res.status(401).send({
+      return res.status(200).send({
+        code: 300000,
         accessToken: null,
         message: "Invalid Password!",
       });
@@ -45,8 +46,9 @@ exports.signin = (req, res) => {
       expiresIn: 86400, // 24 hours
     });
     res.status(200).send({
-      username: user.userName,
+      code: 200000,
       accessToken: token,
+      message: "login success",
     });
   });
 };

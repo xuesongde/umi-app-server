@@ -7,7 +7,9 @@ checkDuplicateUsers = (req, res, next) => {
       return;
     }
     if (data) {
-      res.status(400).send({ message: "Failed! Username is already in use!" });
+      res
+        .status(200)
+        .send({ code: 300000, message: "Failed! Username is already in use!" });
       return;
     }
     next();
