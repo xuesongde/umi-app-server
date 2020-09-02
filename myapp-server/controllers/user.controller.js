@@ -33,7 +33,14 @@ exports.findAll = (req, res) => {
         message:
           err.message || "Some error occurred while retrieving customers.",
       });
-    else res.send(data);
+    else {
+      const dataIndexArray = [];
+      const [first] = data;
+      for (let i in first) {
+        dataIndexArray.push({ dataIndex: i, title: i });
+      }
+      res.send({ code: 200000, data: { list: data, title: dataIndexArray } });
+    }
   });
 };
 
@@ -95,7 +102,8 @@ exports.delete = (req, res) => {
           message: "Could not delete Customer with id " + req.params.userId,
         });
       }
-    } else res.send({ message: `Customer was deleted successfully!` });
+    } else
+      res.send({ code: 200000, message: `Customer was deleted successfully!` });
   });
 };
 
