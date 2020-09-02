@@ -34,8 +34,8 @@ module.exports = (app) => {
   app.put("/users/:userId", [authJwt.verifyToken], users.update);
 
   // Delete a user with userId
-  app.delete("/users/:userId", [authJwt.verifyToken], users.delete);
+  app.delete("/deleteByUserName/:userId", [authJwt.verifyToken], users.delete);
 
   // Create a new user
-  app.delete("/users", [authJwt.verifyToken], users.deleteAll);
+  app.delete("/deleteAll", [authJwt.verifyToken], users.deleteAll);
 };
