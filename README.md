@@ -1,5 +1,5 @@
 # umi-app-server
-A server for my umi front end project corresponding front end project: https://github.com/xuesongde/umi-app
+A server for my umi front end project. Corresponding front end project: https://github.com/xuesongde/umi-app
 ## 简介
 Token Based Authentication(基于token的身份认证)
 
