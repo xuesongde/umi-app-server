@@ -1,6 +1,6 @@
 # umi-app-server
 A server for my umi front end project
-
+## 简介
 Token Based Authentication(基于token的身份认证)
 
 Comparing with Session-based Authentication that need to store Session on Cookie, the big advantage of Token-based Authentication is that we store the JSON Web Token (JWT) on Client side: Local Storage for Browser, Keychain for IOS and SharedPreferences for Android… So we don’t need to build another backend project that supports Native Apps or an additional Authentication module for Native App users.
@@ -21,13 +21,18 @@ Header, Payload, Signature是JWT的三个重要组成部分, 合并在一起组�
 For more details, you can visit:
 [In-depth Introduction to JWT-JSON Web Token](https://bezkoder.com/jwt-json-web-token/)
 
+## 功能列表
+
 这个项目使用node.js, express.js, mySql 实现了以下功能接口
 
-method    urls      action
-post      /signup    用户注册
-post      /signin    用户登录
-get       /users     查询注册的users
-delete    /deleteByUserName/:userId      根据用户名删除用户
+| method | urls  | action |
+| :----: | :----: | :----: |
+| post | /signup | 用户注册 |
+| post  | /signin | 用户登录 |
+| get  | /users | 查询注册的users |
+| delete  | /deleteByUserName/:userId | 根据用户名删除用户 |
+
+## 中间件
 
 中间件两个,用来在接口之前做校验
 
@@ -35,7 +40,7 @@ authJwt 校验token的有效性
 
 verifySignUp 校验用户名唯一性
 
-流程图如下:
+## 流程图如下:
 
 ![image](https://bezkoder.com/wp-content/uploads/2020/02/node-js-mongodb-jwt-authentication-flow.png)
 
